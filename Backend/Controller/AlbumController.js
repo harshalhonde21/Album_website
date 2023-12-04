@@ -16,7 +16,7 @@ export const createAlbum = async (req, res) => {
   try {
     const newAlbum = new Album({ title, description });
     const savedAlbum = await newAlbum.save();
-    res.json(savedAlbum);
+    res.json({ _id: savedAlbum._id, title, description });
   } catch (error) {
     res.status(500).json({ message: 'Server error' });
   }
