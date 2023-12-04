@@ -1,6 +1,7 @@
 import express from "express";
 import mongoose from "mongoose";
 import cors from "cors";
+import AdminRoutes from "./Routes/AdminRoutes.js"
 
 import config from "./config.js";
 const mongoURI = config.mongoURI;
@@ -11,6 +12,7 @@ const app = express();
 
 app.use(cors());
 app.use(express.json());
+app.use('/admin/auth', AdminRoutes);
 
 
 mongoose

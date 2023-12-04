@@ -1,9 +1,9 @@
 import { Routes, Route } from 'react-router-dom';
 import { Fragment } from 'react';
 import Navbar from './Components/Navbar';
-import Home from './pages/Home';
-import Admin from './pages/Admin';
-import User from './pages/User';
+import Home from './Pages/Home';
+import Admin from './Pages/Admin';
+import User from './Pages/User';
 
 const App = () => {
   return (
