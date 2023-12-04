@@ -7,7 +7,7 @@ export const login = async (req, res) => {
     const user = await Admin.findOne({ username, password });
 
     if (user) {
-      res.json({ success: true, message: 'Login successful' });
+      res.json({ success: true, message: 'Login successful', user });
     } else {
       res.status(401).json({ success: false, message: 'Invalid credentials' });
     }
