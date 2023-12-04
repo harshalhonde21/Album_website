@@ -21,3 +21,23 @@ export const createAlbum = async (req, res) => {
     res.status(500).json({ message: 'Server error' });
   }
 };
+
+export const addPhotoToAlbum = async (req, res) => {
+  const { albumId } = req.params;
+  const photo = req.file;
+
+  try {
+    const album = await Album.findById(albumId);
+
+    if (!album) {
+      return res.status(404).json({ message: 'Album not found' });
+    }
+
+    album.photos.push({ filename: photo.filename, path: photo.path });
+    await album.save();
+
+    res.json({ message: 'Photo added to album successfully' });
+  } catch (error) {
+    res.status(500).json({ message: 'Server error' });
+  }
+};
