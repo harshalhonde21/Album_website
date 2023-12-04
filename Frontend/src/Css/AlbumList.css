@@ -1,0 +1,34 @@
+.album-list-container {
+  position: relative;
+  top: 20%;
+  margin-left: 10%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10%;
+}
+
+.album-item {
+  border: 2px solid white;
+  width: 10%;
+  height: 20%;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  padding: 15px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.album-item:hover {
+  transform: scale(1.05);
+  cursor: pointer;
+}
+
+.album-item h3 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.album-item p {
+  font-size: 1rem;
+  color: #555;
+}

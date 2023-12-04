@@ -1,0 +1,61 @@
+.outer-containerAdmin{
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  background-color: #8a2be2; 
+  background: linear-gradient(
+    to right,
+    #8a2be2,
+    #a243a7,
+    #be4b9b,
+    #d8528f,
+    #f05784
+  );
+}
+
+.create-album-icon {
+  cursor: pointer;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #2196F3;
+  color: white;
+  border-radius: 50%;
+  padding: 10px;
+}
+
+.create-album-form {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.create-album-form label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.create-album-form input,
+.create-album-form textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.create-album-form button {
+  background-color: purple;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.create-album-form button + button {
+  margin-left: 10px;
+}

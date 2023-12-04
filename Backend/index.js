@@ -2,6 +2,7 @@ import express from "express";
 import mongoose from "mongoose";
 import cors from "cors";
 import AdminRoutes from "./Routes/AdminRoutes.js"
+import AlbumRoutes from "./Routes/AlbumRoutes.js"
 
 import config from "./config.js";
 const mongoURI = config.mongoURI;
@@ -13,6 +14,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 app.use('/admin', AdminRoutes);
+app.use('/createAlbum', AlbumRoutes)
 
 
 mongoose

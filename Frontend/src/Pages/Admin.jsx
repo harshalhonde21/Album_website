@@ -1,9 +1,11 @@
 import { Fragment, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "../Css/Admin.css";
 
 const Admin = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const navigate = useNavigate(); 
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -21,7 +23,7 @@ const Admin = () => {
       });
 
       if (response.ok) {
-        alert("login success");
+        navigate("/createAlbum");
       } else {
         const errorMessage = await response.text();
         throw new Error(`HTTP error! Status: ${response.status}. Message: ${errorMessage}`);
