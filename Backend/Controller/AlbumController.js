@@ -1,4 +1,5 @@
 import Album from '../Models/Album.js';
+import User from "../Models/User.js";
 
 export const getAllAlbums = async (req, res) => {
   try {
@@ -11,12 +12,22 @@ export const getAllAlbums = async (req, res) => {
 
 
 export const createAlbum = async (req, res) => {
-  const { title, description } = req.body;
+  const { title, description, userId } = req.body;
 
   try {
-    const newAlbum = new Album({ title, description });
+    const user = await User.findById(userId);
+
+    if (!user) {
+      return res.status(404).json({ message: 'User not found' });
+    }
+
+    const newAlbum = new Album({ title, description, user: userId });
     const savedAlbum = await newAlbum.save();
-    res.json({ _id: savedAlbum._id, title, description });
+
+    user.albums.push(savedAlbum._id);
+    await user.save();
+
+    res.json({savedAlbum });
   } catch (error) {
     res.status(500).json({ message: 'Server error' });
   }

@@ -8,7 +8,11 @@ const photoSchema = new mongoose.Schema({
 const albumSchema = new mongoose.Schema({
   title: String,
   description: String,
-  photos: [photoSchema], 
+  photos: [photoSchema],
+  user: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'User',
+  },
 });
 
 const Album = mongoose.model('Album', albumSchema);
