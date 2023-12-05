@@ -18,7 +18,7 @@ const AlbumList = () => {
 
   useEffect(() => {
     fetchAlbums();
-  }, []);
+  }, [albums]);
 
   const handleUploadSuccess = () => {
     fetchAlbums();

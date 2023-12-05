@@ -18,10 +18,10 @@
   transition: transform 0.3s ease-in-out;
 }
 
-.album-item:hover {
+/* .album-item:hover {
   transform: scale(1.05);
   cursor: pointer;
-}
+} */
 
 .album-item h3 {
   font-size: 1.5rem;
