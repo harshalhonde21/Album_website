@@ -2,15 +2,7 @@
   margin: 0;
   padding: 0;
   height: 100vh;
-  background-color: #8a2be2; 
-  background: linear-gradient(
-    to right,
-    #8a2be2,
-    #a243a7,
-    #be4b9b,
-    #d8528f,
-    #f05784
-  );
+  background-color: black;
 }
 
 .create-album-icon {
@@ -18,7 +10,7 @@
   position: fixed;
   bottom: 20px;
   right: 20px;
-  background-color: #2196F3;
+  background-color: #8a2be2;
   color: white;
   border-radius: 50%;
   padding: 10px;
