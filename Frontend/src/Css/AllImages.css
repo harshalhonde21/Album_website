@@ -1,0 +1,39 @@
+.outer-all-images {
+  background-color: black;
+  padding: 20px;
+  min-height: 100vh; /* Make background full-page */
+}
+
+.all-images-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  color: white;
+}
+
+.album-heading {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.album-description {
+  margin-bottom: 20px;
+}
+
+.image-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.album-photo {
+  width: 100%;
+  height: auto;
+  border-radius: 10px; /* Adjust border-radius for a nice border */
+  box-shadow: 0 0 10px rgba(150, 51, 255, 0.8); /* Add a purple shadow glow effect */
+  transition: transform 0.3s ease-in-out;
+  cursor: pointer;
+}
+
+.album-photo:hover {
+  transform: scale(1.1);
+}

@@ -23,7 +23,10 @@
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   color: white;
   background-color: black; 
+  cursor: pointer;
 }
+
+
 
 .album-title {
   font-size: 1.5rem;

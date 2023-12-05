@@ -1,9 +1,11 @@
 import { Fragment, useEffect, useState } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 import "../Css/UserPage.css";
 
 const UserPage = () => {
   const [userAlbums, setUserAlbums] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -34,23 +36,31 @@ const UserPage = () => {
     fetchData();
   }, []);
 
+  const handleAlbumClick = (album) => {
+    navigate("/allImages", { state: { album } });
+  };
+
   return (
     <Fragment>
       <div className="outer-page-user">
         <div className="user-page-container">
           {userAlbums.map((album) => (
-            <div key={album._id} className="album-card">
+            <div
+              key={album._id}
+              className="album-card"
+              onClick={() => handleAlbumClick(album)}
+            >
               <h2 className="album-title">{album.title}</h2>
               <p className="album-description">{album.description}</p>
 
-              {album.photos.map((photos) => (
+              {/* {album.photos.map((photos) => (
                 <img
                   key={photos._id}
                   className="album-photo"
                   src={`http://localhost:5500/${photos.path}`}
                   alt={photos._id}
                 />
-              ))}
+              ))} */}
             </div>
           ))}
         </div>

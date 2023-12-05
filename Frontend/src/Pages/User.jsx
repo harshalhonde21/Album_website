@@ -1,10 +1,12 @@
 import { useState } from 'react';
 import axios from 'axios';
 import '../Css/User.css';
+import {useNavigate} from "react-router-dom"
 
 const User = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const navigate = useNavigate();
 
   const handleLogin = async () => {
     try {
@@ -17,7 +19,7 @@ const User = () => {
 
       localStorage.setItem('userData', JSON.stringify(token));
 
-      console.log('Login successful:', response.data);
+      navigate('/userPage');
     } catch (error) {
       console.error('Login failed:', error.message);
     }
