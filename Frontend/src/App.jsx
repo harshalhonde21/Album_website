@@ -6,6 +6,7 @@ import Admin from './Pages/Admin';
 import User from './Pages/User';
 import AdminCreate from './Components/AdminCreate';
 import PhotoUpload from './Components/PhotoUpload';
+import UserPage from './Components/UserPage';
 
 const App = () => {
   return (
@@ -17,6 +18,8 @@ const App = () => {
         <Route path="/user" element={<User />} />
         <Route path="/createAlbum" element={<AdminCreate />} />
         <Route path="/addPhotos/:id" element={<PhotoUpload />} />
+        <Route path="/userPage" element={<UserPage />} />
+      
       </Routes>
     </Fragment>
   );

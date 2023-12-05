@@ -1,11 +1,41 @@
-import React from 'react'
+import { useState } from 'react';
+import axios from 'axios';
+import '../Css/User.css';
 
 const User = () => {
-  return (
-    <div>
-      
-    </div>
-  )
-}
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
 
-export default User
+  const handleLogin = async () => {
+    try {
+      const response = await axios.post('http://localhost:5500/user/login', {
+        username,
+        password,
+      });
+
+      const token = response.data.user;
+
+      localStorage.setItem('userData', JSON.stringify(token));
+
+      console.log('Login successful:', response.data);
+    } catch (error) {
+      console.error('Login failed:', error.message);
+    }
+  };
+
+  return (
+    <div className="user-container">
+      <div className="login-form">
+        <label>Username:</label>
+        <input type="text" value={username} onChange={(e) => setUsername(e.target.value)} />
+
+        <label>Password:</label>
+        <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
+
+        <button onClick={handleLogin}>Login</button>
+      </div>
+    </div>
+  );
+};
+
+export default User;
