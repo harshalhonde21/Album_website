@@ -3,6 +3,7 @@ import mongoose from 'mongoose';
 const photoSchema = new mongoose.Schema({
   filename: String,
   path: String,
+  base64: String,
 });
 
 const albumSchema = new mongoose.Schema({

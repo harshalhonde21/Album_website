@@ -41,18 +41,25 @@ const AdminCreate = () => {
         toast.error('Please provide a valid user ID');
         return;
       }
-      await axios.post('http://localhost:5500/createAlbum/addAlbum', {
+  
+      const response = await axios.post('http://localhost:5500/createAlbum/addAlbum', {
         title,
         description,
         userId,
       });
-
-      toast.success('Album created successfully!');
-      setIsOpen(false);
+  
+      if (response.data && response.data.error) {
+        toast.error(response.data.error);
+      } else {
+        toast.success('Album created successfully!');
+        setIsOpen(false);
+      }
     } catch (error) {
       console.error('Error creating album:', error.message);
+      toast.error('Failed to create album. Please try again.');
     }
   };
+  
 
   const handleLogout = () => {
     localStorage.removeItem('adminData');
