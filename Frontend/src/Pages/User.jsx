@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
 import "../Css/User.css";
 import toast from 'react-hot-toast';
@@ -8,6 +8,14 @@ const User = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
+
+  useEffect(() => {
+    // Check if userData is present in local storage
+    const userDataString = localStorage.getItem("userData");
+    if (userDataString) {
+      navigate("/userPage");
+    }
+  }, [navigate]);
 
   const handleLogin = async () => {
     try {

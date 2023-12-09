@@ -40,6 +40,11 @@ const UserPage = () => {
     navigate("/allImages", { state: { album } });
   };
 
+  const handleLogout = () => {
+    localStorage.removeItem("userData");
+    navigate("/user");
+  };
+
   return (
     <Fragment>
       <div className="outer-page-user">
@@ -53,14 +58,13 @@ const UserPage = () => {
               <h2 className="album-title">{album.title}</h2>
               <p className="album-description">{album.description}</p>
 
-                <img
-                  className="album-photo"
-                  src="/bg1.jpg"
-                  alt="no image"
-                />
+              <img className="album-photo" src="/bg1.jpg" alt="no image" />
             </div>
           ))}
         </div>
+        <button className="logout-button" onClick={handleLogout}>
+          Logout
+        </button>
       </div>
     </Fragment>
   );
