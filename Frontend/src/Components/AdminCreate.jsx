@@ -1,4 +1,4 @@
-import { Fragment, useState } from 'react';
+import { Fragment, useState, useEffect } from 'react';
 import AddIcon from '@mui/icons-material/Add';
 import axios from 'axios';
 import "../Css/AdminCreate.css";
@@ -9,6 +9,7 @@ import toast from 'react-hot-toast';
 const AdminCreate = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isAddUserOpen, setIsAddUserOpen] = useState(false);
+  const [isUserInfoOpen, setIsUserInfoOpen] = useState(false);
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
   const [userId, setUserId] = useState('');
@@ -16,7 +17,23 @@ const AdminCreate = () => {
     username: '',
     password: '',
   });
+  const [userInfo, setUserInfo] = useState([]);
   const navigate = useNavigate();
+
+  useEffect(() => {
+    const fetchUserInfo = async () => {
+      try {
+        const response = await axios.get('http://localhost:5500/user/getUser');
+        setUserInfo(response.data.user);
+      } catch (error) {
+        console.error('Error fetching user info:', error.message);
+      }
+    };
+
+    if (isUserInfoOpen) {
+      fetchUserInfo();
+    }
+  }, [isUserInfoOpen]);
 
   const handleCreateAlbum = async () => {
     try {
@@ -62,6 +79,10 @@ const AdminCreate = () => {
       <div className='outer-containerAdmin'>
         <button className="logout-button" onClick={handleLogout}>Logout</button>
 
+        <div className="user-info-icon" onClick={() => setIsUserInfoOpen(true)}>
+          <h3>User Info</h3>
+        </div>
+
         <div className="add-user-icon" onClick={() => setIsAddUserOpen(true)}>
           <h3>Add User</h3>
         </div>
@@ -69,6 +90,29 @@ const AdminCreate = () => {
         <div className="create-album-icon" onClick={() => setIsOpen(true)}>
           <AddIcon fontSize="large" />
         </div>
+
+        {isUserInfoOpen && (
+          <div className="user-info-table">
+            <h2>User Info</h2>
+            <table>
+              <thead>
+                <tr>
+                  <th>User ID</th>
+                  <th>Username</th>
+                </tr>
+              </thead>
+              <tbody>
+                {userInfo.map(user => (
+                  <tr key={user._id}>
+                    <td>{user._id}</td>
+                    <td>{user.username}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+            <button onClick={() => setIsUserInfoOpen(false)}>Close</button>
+          </div>
+        )}
 
         {isAddUserOpen && (
           <div className="add-user-form">

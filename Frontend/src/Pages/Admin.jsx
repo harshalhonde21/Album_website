@@ -1,12 +1,19 @@
-import { Fragment, useState } from "react";
+import { Fragment, useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import toast, { Toaster } from 'react-hot-toast';
+import toast from "react-hot-toast";
 import "../Css/Admin.css";
 
 const Admin = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
+
+  useEffect(() => {
+    const adminData = JSON.parse(localStorage.getItem("adminData"));
+    if (adminData) {
+      navigate("/createAlbum");
+    }
+  }, [navigate]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -26,14 +33,14 @@ const Admin = () => {
       if (response.ok) {
         const adminData = await response.json();
         localStorage.setItem("adminData", JSON.stringify(adminData));
-        toast.success('Successfully Login!')
+        toast.success("Successfully Login!");
         navigate("/createAlbum");
       } else {
         const errorMessage = await response.text();
         if (errorMessage.includes("Invalid credentials")) {
           toast.error("Incorrect password. Please try again.");
-          setUsername('')
-          setPassword('')
+          setUsername("");
+          setPassword("");
         } else {
           throw new Error(
             `HTTP error! Status: ${response.status}. Message: ${errorMessage}`
@@ -48,7 +55,7 @@ const Admin = () => {
   return (
     <Fragment>
       <div className="admin-container">
-        <form  className="login-form" onSubmit={handleSubmit}>
+        <form className="login-form" onSubmit={handleSubmit}>
           <div className="form-group">
             <h1 style={{ textAlign: "center", marginBottom: "30px" }}>
               Admin Login
@@ -65,7 +72,7 @@ const Admin = () => {
           <div className="form-group">
             <label htmlFor="password">Password:</label>
             <input
-              type="text"
+              type="password"
               id="password"
               name="password"
               value={password}
