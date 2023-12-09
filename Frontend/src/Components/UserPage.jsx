@@ -53,14 +53,11 @@ const UserPage = () => {
               <h2 className="album-title">{album.title}</h2>
               <p className="album-description">{album.description}</p>
 
-              {/* {album.photos.map((photos) => (
                 <img
-                  key={photos._id}
                   className="album-photo"
-                  src={`http://localhost:5500/${photos.path}`}
-                  alt={photos._id}
+                  src="/bg1.jpg"
+                  alt="no image"
                 />
-              ))} */}
             </div>
           ))}
         </div>

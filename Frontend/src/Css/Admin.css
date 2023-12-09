@@ -4,22 +4,32 @@
   box-sizing: border-box;
 }
 
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background: url('/bg1.jpg') center/cover fixed no-repeat; 
+  height: 100vh;
+  overflow: hidden; 
+}
+
+
 .admin-container {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background-color: black; 
 }
 
 .login-form {
   width: 300px;
   padding: 20px;
-  background-color: black; 
+  background-color: rgba(225, 7, 7, 0.5); /* Use rgba for transparency */
   border-radius: 10px;
-  box-shadow: 0 0 30px 5px #4b146d; 
-  backdrop-filter: blur(5px);
+  box-shadow: 0 0 30px 5px #4b146d;
+  backdrop-filter: blur(10px); /* Adjust the blur amount */
 }
+
 
 .form-group {
   margin-bottom: 20px;
@@ -28,7 +38,9 @@
 .form-group label {
   display: block;
   margin-bottom: 8px;
-  color: white; 
+  color: rgb(3, 3, 3); 
+  font-weight: bold;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
 .form-group input {

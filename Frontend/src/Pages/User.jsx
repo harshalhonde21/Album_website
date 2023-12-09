@@ -1,38 +1,53 @@
-import { useState } from 'react';
-import axios from 'axios';
-import '../Css/User.css';
-import {useNavigate} from "react-router-dom"
+import { useState } from "react";
+import axios from "axios";
+import "../Css/User.css";
+import toast from 'react-hot-toast';
+import { useNavigate } from "react-router-dom";
 
 const User = () => {
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
   const handleLogin = async () => {
     try {
-      const response = await axios.post('http://localhost:5500/user/login', {
+      const response = await axios.post("http://localhost:5500/user/login", {
         username,
         password,
       });
-
       const token = response.data.user;
-
-      localStorage.setItem('userData', JSON.stringify(token));
-
-      navigate('/userPage');
+      toast.success('Successfully logged in!');
+      localStorage.setItem("userData", JSON.stringify(token));
+      navigate("/userPage");
     } catch (error) {
-      console.error('Login failed:', error.message);
+      console.error("Login failed:", error.message);
+      if (error.response && error.response.status === 401) {
+        toast.error('Invalid username or password. Please try again.');
+      } else {
+        toast.error('Login failed. Please try again.');
+      }
     }
   };
 
   return (
     <div className="user-container">
       <div className="login-form">
+        <h1 style={{ textAlign: "center", marginBottom: "20px" }}>
+          User Login
+        </h1>
         <label>Username:</label>
-        <input type="text" value={username} onChange={(e) => setUsername(e.target.value)} />
+        <input
+          type="text"
+          value={username}
+          onChange={(e) => setUsername(e.target.value)}
+        />
 
         <label>Password:</label>
-        <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
+        <input
+          type="password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+        />
 
         <button onClick={handleLogin}>Login</button>
       </div>

@@ -1,13 +1,21 @@
-.outer-containerAdmin{
+body {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
+  background: url('/bg1.jpg') center/cover fixed no-repeat; 
   height: 100vh;
-  background-color: black;
+  overflow: hidden; 
+}
+
+.outer-containerAdmin {
+  height: 100%;
+  margin-bottom: 80px; 
+  overflow-y: auto; 
 }
 
 .create-album-icon {
   cursor: pointer;
-  position: fixed;
+  position: absolute; 
   bottom: 20px;
   right: 20px;
   background-color: #8a2be2;
@@ -17,7 +25,8 @@
 }
 
 .create-album-form {
-  position: fixed;
+  z-index: 100;
+  position: absolute; 
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -50,4 +59,77 @@
 
 .create-album-form button + button {
   margin-left: 10px;
+}
+
+.logout-button {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  background-color: #8a2be2;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+
+
+.add-user-icon {
+  cursor: pointer;
+  position: absolute;
+  bottom: 100px;
+  right: 20px;
+  background-color: #8a2be2;
+  color: white;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+
+/* user form add */
+.add-user-form {
+  z-index: 100;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.add-user-form label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.add-user-form input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.add-user-form button {
+  background-color: purple;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.add-user-form button + button {
+  margin-left: 10px;
+}
+
+.react-hot-toast-success {
+  background-color: #4caf50;
+  color: white;
+}
+
+.react-hot-toast-error {
+  background-color: #f44336;
+  color: white;
 }

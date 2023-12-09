@@ -1,5 +1,4 @@
 .outer-page-user {
-  background-color: black;
   min-height: 100vh;
   display: flex;
   align-items: center;
@@ -18,11 +17,11 @@
   width: 300px;
   margin: 20px;
   padding: 15px;
-  border: 1px solid #ddd;
-  border-radius: 8px;
+  border: 5px solid #8a2be2;
+  border-radius: 15px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  color: white;
-  background-color: black; 
+  color: black;
+  background-color: rgb(255, 255, 255); 
   cursor: pointer;
 }
 

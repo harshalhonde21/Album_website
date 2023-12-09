@@ -7,8 +7,8 @@
 .home-container {
   display: flex;
   height: 100vh;
-  background-color: black; /* Set the background color to black */
-  color: white; /* Set text color to white */
+  background-color: black; 
+  color: white; 
 }
 
 .text-section {

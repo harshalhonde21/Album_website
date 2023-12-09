@@ -1,11 +1,16 @@
 .photo-upload-container {
-  border: 2px solid #8a2be2;
-  position: absolute;
-  top: 200%;
-  left: 30%;
-  opacity: 0; 
-  height: 120%;
-  animation: fadeIn 0.5s forwards; 
+  border: 5px solid #8a2be2;
+  background-color: rgba(255, 255, 255, 0.9); /* Set background color with opacity */
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  padding: 30px; /* Increase padding for a larger box */
+  text-align: center;
+  animation: fadeIn 0.5s forwards;
+  border-radius: 10px; /* Add border-radius for rounded corners */
+  backdrop-filter: blur(25px); /* Apply blur effect to the background */
 }
 
 @keyframes fadeIn {
@@ -17,17 +22,25 @@
   }
 }
 
+.photo-upload-label {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+}
+
 .photo-upload-input {
-  margin-bottom: 10px;
+  display: none; /* Hide the input visually */
 }
 
 .photo-upload-button {
   background-color: #2196F3;
   color: white;
-  padding: 10px;
+  padding: 15px;
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  margin-top: 20px; /* Increase margin for spacing */
 }
 
 .photo-upload-button:hover {

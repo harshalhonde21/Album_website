@@ -1,47 +1,55 @@
-/* Css/User.css */
-
 .user-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-color: black;
-  }
-  
-  .login-form {
-    width: 300px;
-    padding: 20px;
-    background-color: rgba(0, 0, 0, 0.8);
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
-    color: white;
-  }
-  
-  .login-form label {
-    display: block;
-    margin-bottom: 8px;
-  }
-  
-  .login-form input {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 15px;
-    border: 1px solid #666;
-    border-radius: 5px;
-  }
-  
-  .login-form button {
-    width: 100%;
-    padding: 10px;
-    background-color: #6a1e9b;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease-in-out;
-  }
-  
-  .login-form button:hover {
-    background-color: #4b146d;
-  }
-  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background: url("/bg1.jpg") center/cover fixed no-repeat;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.login-form {
+  width: 300px;
+  padding: 20px;
+  background-color: rgba(210, 174, 174, 0.8);
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+  color: rgb(2, 2, 2);
+  font-weight: bolder;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+
+.login-form label {
+  display: block;
+  margin-bottom: 8px;
+}
+
+.login-form input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #e3dfdf;
+  border-radius: 5px;
+  background-color: rgba(192, 147, 147, 0.8);
+}
+
+.login-form button {
+  width: 100%;
+  padding: 10px;
+  background-color: #6a1e9b;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.login-form button:hover {
+  background-color: #4b146d;
+}

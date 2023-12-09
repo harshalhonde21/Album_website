@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import axios from 'axios';
 import '../Css/PhotoUpload.css';
+import CloudUploadIcon from '@mui/icons-material/CloudUpload'; // Import MUI icon
+import toast from 'react-hot-toast';
 
 const PhotoUpload = ({ albumId, onUpload }) => {
   const [photo, setPhoto] = useState(null);
@@ -16,21 +18,28 @@ const PhotoUpload = ({ albumId, onUpload }) => {
 
       await axios.post(`http://localhost:5500/createAlbum/addPhoto/${albumId}`, formData);
       onUpload();
+      toast.success('Photo Added successfully!');
     } catch (error) {
       console.error('Error uploading photo:', error.message);
+      toast.error('Photo not added?');
     }
   };
 
   return (
     <div className="photo-upload-container">
+      <label htmlFor="photo-upload-input" className="photo-upload-label">
+        <CloudUploadIcon fontSize="large" style={{ fontSize: 48 }}  />
+        Upload Photo
+      </label>
       <input
         type="file"
         accept="image/*"
+        id="photo-upload-input"
         className="photo-upload-input"
         onChange={handleFileChange}
       />
       <button className="photo-upload-button" onClick={handleUpload}>
-        Upload Photo
+        Upload
       </button>
     </div>
   );

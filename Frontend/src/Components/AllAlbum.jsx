@@ -29,6 +29,11 @@ const AlbumList = () => {
     <div className="album-list-container">
       {albums.map((album) => (
         <div key={album._id} className="album-item" onClick={() => setSelectedAlbum(album._id)}>
+          <img
+            src="/bg1.jpg"
+            alt={album.title}
+            className="album-image"
+          />
           <h3>{album.title}</h3>
           <p>{album.description}</p>
           {selectedAlbum === album._id && (

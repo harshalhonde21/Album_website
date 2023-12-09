@@ -1,5 +1,6 @@
 import { Routes, Route } from 'react-router-dom';
 import { Fragment } from 'react';
+import toast, { Toaster } from 'react-hot-toast';
 import Navbar from './Components/Navbar';
 import Home from './Pages/Home';
 import Admin from './Pages/Admin';
@@ -19,10 +20,11 @@ const App = () => {
         <Route path="/user" element={<User />} />
         <Route path="/createAlbum" element={<AdminCreate />} />
         <Route path="/addPhotos/:id" element={<PhotoUpload />} />
-        <Route path="/userPage" element={<UserPage />} />
+        <Route path="userPage" element={<UserPage />} />
         <Route path="/allImages" element={<AllImages />} />
       
       </Routes>
+      <Toaster />
     </Fragment>
   );
 };
