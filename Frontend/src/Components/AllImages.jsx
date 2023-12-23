@@ -18,7 +18,7 @@ const AllImages = () => {
               <img
                 key={photo._id}
                 className="album-photo"
-                src={`http://localhost:5500/${photo.path}`}
+                src={`https://album-website.onrender.com/${photo.path}`}
                 alt={photo._id}
               />
             ))}
