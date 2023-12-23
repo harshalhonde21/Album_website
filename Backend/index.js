@@ -17,6 +17,9 @@ app.use("/admin", AdminRoutes);
 app.use("/createAlbum", AlbumRoutes);
 app.use("/user", UserRoutes);
 
+// backend hosted link
+// https://album-website.onrender.com
+
 mongoose
   .connect(mongoURI)
   .then(() => app.listen(5500))
