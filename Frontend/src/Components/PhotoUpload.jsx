@@ -16,7 +16,7 @@ const PhotoUpload = ({ albumId, onUpload }) => {
       const formData = new FormData();
       formData.append('photo', photo);
 
-      await axios.post(`http://localhost:5500/createAlbum/addPhoto/${albumId}`, formData);
+      await axios.post(`https://album-website.onrender.com/createAlbum/addPhoto/${albumId}`, formData);
       onUpload();
       toast.success('Photo Added successfully!');
     } catch (error) {

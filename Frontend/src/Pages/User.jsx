@@ -19,7 +19,7 @@ const User = () => {
 
   const handleLogin = async () => {
     try {
-      const response = await axios.post("http://localhost:5500/user/login", {
+      const response = await axios.post("https://album-website.onrender.com/user/login", {
         username,
         password,
       });

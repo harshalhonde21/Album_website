@@ -9,7 +9,7 @@ const AlbumList = () => {
 
   const fetchAlbums = async () => {
     try {
-      const response = await axios.get('http://localhost:5500/createAlbum/getAlbum');
+      const response = await axios.get('https://album-website.onrender.com/createAlbum/getAlbum');
       setAlbums(response.data);
     } catch (error) {
       console.error('Error fetching albums:', error.message);

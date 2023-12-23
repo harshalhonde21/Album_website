@@ -19,7 +19,7 @@ const Admin = () => {
     e.preventDefault();
 
     try {
-      const response = await fetch("http://localhost:5500/admin/login", {
+      const response = await fetch("https://album-website.onrender.com/admin/login", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

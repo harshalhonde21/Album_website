@@ -23,7 +23,7 @@ const AdminCreate = () => {
   useEffect(() => {
     const fetchUserInfo = async () => {
       try {
-        const response = await axios.get('http://localhost:5500/user/getUser');
+        const response = await axios.get('https://album-website.onrender.com/user/getUser');
         setUserInfo(response.data.user);
       } catch (error) {
         console.error('Error fetching user info:', error.message);
@@ -42,7 +42,7 @@ const AdminCreate = () => {
         return;
       }
   
-      const response = await axios.post('http://localhost:5500/createAlbum/addAlbum', {
+      const response = await axios.post('https://album-website.onrender.com/createAlbum/addAlbum', {
         title,
         description,
         userId,
@@ -68,7 +68,7 @@ const AdminCreate = () => {
 
   const handleAddUser = async () => {
     try {
-      await axios.post('http://localhost:5500/user/signup', {
+      await axios.post('https://album-website.onrender.com/user/signup', {
         username: newUser.username,
         password: newUser.password,
       });
